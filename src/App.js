@@ -1,3 +1,5 @@
+import React from "react";
+import Test from "./Test";
 const App = () => {
   const state = {
     name: "Mohith",
@@ -8,11 +10,11 @@ const App = () => {
       <center>
         <h2>Iam from App Component</h2>
         <h3>
-          Hi this is {state.name} and age is {state.age}
+          <Test />
         </h3>
       </center>
     </div>
   );
 };
-
+// Check Test.js to see how props work
 export default App;
