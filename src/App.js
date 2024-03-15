@@ -1,10 +1,10 @@
 const App = () => {
-  const names = ["James", "John", "Paul", "George", "Washington"];
-  const filtered = names.filter((name) => name.includes("J"));
+  const names = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+  const filtered = names.filter((name) => name > 40);
   return (
     <div>
       {filtered.map((value) => (
-        <h4>Names containing 'J' are: {value}</h4>
+        <h4>Values greater than 40: {value}</h4>
       ))}
     </div>
   );
