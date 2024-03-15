@@ -6,7 +6,7 @@ const LoginForm = () => {
   });
   const { username, password } = data;
   const changeHandle = (e) => {
-    setData({ ...data, [e.target.name]: [e.target.value] });
+    setData({ ...data, [e.target.name]: e.target.value });
   };
   const submitHandler = (e) => {
     e.preventDefault();
