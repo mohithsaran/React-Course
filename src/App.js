@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Test from "./Test";
+
 const App = () => {
-  const state = {
+  const [data, setData] = useState({
     name: "Mohith",
-    age: 23,
+    age: 21,
+    skills: ["HTML ", "CSS ", "JS "],
+  });
+  const updateSkills = () => {
+    setData({ ...data, skills: ["HTML ", "CSS ", "JS ", "REACT"] });
   };
   return (
     <div>
       <center>
-        <h2>Iam from App Component</h2>
-        <h3>
-          <Test />
-        </h3>
+        <Test name={data.name} age={data.age} skills={data.skills} />
+        <button onClick={updateSkills}>Update Skills</button>
       </center>
     </div>
   );
 };
-// Check Test.js to see how props work
+
 export default App;

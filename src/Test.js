@@ -1,10 +1,11 @@
-import React from "react";
-
 const Test = (props) => {
   return (
-    <h2>
-      Name: {props.name} age: {props.age}
-    </h2>
+    <div>
+      <p>Name: {props.name}</p>
+      <p>Age: {props.age}</p>
+      <p>Skills:{props.skills}</p>
+    </div>
   );
 };
+
 export default Test;
