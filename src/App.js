@@ -1,11 +1,42 @@
+import React, { useState } from "react";
+
 const App = () => {
-  const names = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
-  const filtered = names.filter((name) => name > 40);
+  const [data, setData] = useState({
+    username: "",
+    password: "",
+  });
+  const { username, password } = data;
+  const changeHandle = (e) => {
+    setData({ ...data, [e.target.name]: [e.target.value] });
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(data);
+  };
+
   return (
     <div>
-      {filtered.map((value) => (
-        <h4>Values greater than 40: {value}</h4>
-      ))}
+      <center>
+        <form onSubmit={submitHandler}>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            placeholder="Username"
+            onChange={changeHandle}
+          />
+          <br />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            placeholder="Password"
+            onChange={changeHandle}
+          />
+          <br />
+          <button>Submit</button>
+        </form>
+      </center>
     </div>
   );
 };
