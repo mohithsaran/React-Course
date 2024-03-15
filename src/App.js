@@ -1,21 +1,49 @@
 import React, { useState } from "react";
-import Test from "./Test";
 
 const App = () => {
   const [data, setData] = useState({
-    name: "Mohith",
-    age: 21,
-    skills: ["HTML ", "CSS ", "JS "],
+    user: [],
+    password: [],
   });
-  const updateSkills = () => {
-    setData({ ...data, skills: ["HTML ", "CSS ", "JS ", "REACT"] });
+
+  const handler = (e) => {
+    setData((data) => ({
+      ...data,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(data);
   };
   return (
     <div>
-      <center>
-        <Test name={data.name} age={data.age} skills={data.skills} />
-        <button onClick={updateSkills}>Update Skills</button>
-      </center>
+      <form onSubmit={submitHandler}>
+        <div>
+          <center>
+            <input
+              type="text"
+              value={data.user}
+              onChange={handler}
+              placeholder="username"
+              name="user"
+            />
+            <br />
+            <input
+              type="password"
+              value={data.password}
+              onChange={handler}
+              placeholder="password"
+              name="password"
+            />
+            <br />
+            <button type="submit">Submit</button>
+            <br />
+            <p>Hi {data.user}</p>
+          </center>
+        </div>
+      </form>
     </div>
   );
 };
