@@ -1,9 +1,20 @@
+import React, { useState } from "react";
+import Test from "./Test";
+
 const App = () => {
-  let name = "Mohith";
+  const [data, setData] = useState({
+    name: "Mohith",
+    age: 21,
+    skills: ["HTML ", "CSS ", "JS "],
+  });
+  const updateSkills = () => {
+    setData({ ...data, skills: ["HTML ", "CSS ", "JS ", "REACT"] });
+  };
   return (
     <div>
       <center>
-        <h3>Hello {name}</h3>
+        <Test name={data.name} age={data.age} skills={data.skills} />
+        <button onClick={updateSkills}>Update Skills</button>
       </center>
     </div>
   );
