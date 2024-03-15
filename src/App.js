@@ -1,50 +1,23 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
 const App = () => {
-  const [data, setData] = useState({
-    user: [],
-    password: [],
-  });
-
-  const handler = (e) => {
-    setData((data) => ({
-      ...data,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    console.log(data);
-  };
+  const [count, setCount] = useState(0);
+  // useEffect(() => console.log("clicked"), []);
+  //Use effect with no dependency
+  useEffect(() => console.log(count), [count]);
+  // Use effect with dependency
   return (
+    // <div>
+    //   <h2>You clicked {count} times</h2>
+    //   <button onClick={() => setCount(count + 1)}>Click Here</button>
+    // </div>
+    // counter using useState
     <div>
-      <form onSubmit={submitHandler}>
-        <div>
-          <center>
-            <input
-              type="text"
-              value={data.user}
-              onChange={handler}
-              placeholder="username"
-              name="user"
-            />
-            <br />
-            <input
-              type="password"
-              value={data.password}
-              onChange={handler}
-              placeholder="password"
-              name="password"
-            />
-            <br />
-            <button type="submit">Submit</button>
-            <br />
-            <p>Hi {data.user}</p>
-          </center>
-        </div>
-      </form>
+      <h2>You clicked {count} times</h2>
+      <button onClick={() => setCount(count + 1)}>Click Here</button>
     </div>
+    //Useeffect is always called after return statement once if there is no dependency
+    //here there are no dependency so only once it is executed
+    //when there is dependency it is called everytime count changes
   );
 };
 
