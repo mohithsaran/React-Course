@@ -3,7 +3,7 @@ import React from "react";
 const Test = (props) => {
   return (
     <h2>
-      Name: {props.name} age: {props.age} skills:{props.skills}
+      Name: {props.name} age: {props.age}
     </h2>
   );
 };
