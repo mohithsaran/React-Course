@@ -1,23 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 const App = () => {
-  const [count, setCount] = useState(0);
-  // useEffect(() => console.log("clicked"), []);
-  //Use effect with no dependency
-  useEffect(() => console.log(count), [count]);
-  // Use effect with dependency
+  const arr1 = ["React", "Vue", "Angular", "Svelte"];
+  const arr2 = [
+    {
+      id: 1,
+      title: "React",
+    },
+    {
+      id: 2,
+      title: "Vue",
+    },
+    {
+      id: 3,
+      title: "Angular",
+    },
+    {
+      id: 4,
+      title: "Svelte",
+    },
+  ];
   return (
-    // <div>
-    //   <h2>You clicked {count} times</h2>
-    //   <button onClick={() => setCount(count + 1)}>Click Here</button>
-    // </div>
-    // counter using useState
     <div>
-      <h2>You clicked {count} times</h2>
-      <button onClick={() => setCount(count + 1)}>Click Here</button>
+      {arr1.map((value, index) => (
+        <li> {value}</li>
+      ))}
+      <hr />
+      <p> From Array of objects</p>
+      {arr2.map((value, index) => (
+        <li key={value.id}> {value.title}</li>
+      ))}
     </div>
-    //Useeffect is always called after return statement once if there is no dependency
-    //here there are no dependency so only once it is executed
-    //when there is dependency it is called everytime count changes
   );
 };
 
