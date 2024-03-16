@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import LoginForm from "./LoginForm";
-import Signup from "./SignupForm";
+// import LoginForm from "./LoginForm";
+// import Signup from "./SignupForm";
+import Calculator from "./Calculator";
 
 const App = () => {
   return (
     <div>
       <center>
-        <div className="Signup">
+        {/* <div className="Signup">
           <Signup />
         </div>
         <div className="LoginForm">
           <LoginForm />
-        </div>
+        </div> */}
+        <Calculator />
       </center>
     </div>
   );
