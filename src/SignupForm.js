@@ -12,13 +12,16 @@ const Signup = () => {
   const changeHandle = (e) => {
     setValue({ ...value, [e.target.name]: e.target.value });
   };
+  const { name, email, phoneNumber, password, confirmPassword } = value;
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (value.password == value.confirmPassword) {
-      console.log(value);
-    } else {
+    if (name.length <= 5) {
+      alert("Name should be atleast 5 characters long");
+    } else if (password !== confirmPassword) {
       alert("Passwords do not match");
+    } else {
+      console.log(value);
     }
   };
 
@@ -82,6 +85,9 @@ const Signup = () => {
             ></input>
           </label>
           <br />
+          {password !== confirmPassword ? (
+            <p style={{ color: "red" }}>Passwords do not match</p>
+          ) : null}
           <label>
             <button>Submit</button>
           </label>

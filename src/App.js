@@ -6,8 +6,12 @@ const App = () => {
   return (
     <div>
       <center>
-        <Signup />
-        <LoginForm />
+        <div className="Signup">
+          <Signup />
+        </div>
+        <div className="LoginForm">
+          <LoginForm />
+        </div>
       </center>
     </div>
   );
