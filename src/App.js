@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-
+import React from "react";
+import NavBar from "./NavBar";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import Dashboard from "./Dashboard";
+import About from "./About";
 const App = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    axios.get("https://jsonplaceholder.typicode.com/todos").then((res) => {
-      setData(res.data);
-    });
-  });
   return (
     <div>
-      {data.map((item) => (
-        <li key={item.id}>{item.title}</li>
-      ))}
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" exact Component={Home} />
+          <Route path="/dashboard" Component={Dashboard} />
+          <Route path="/about" Component={About} />
+        </Routes>
+      </Router>
     </div>
   );
 };
+
 export default App;
